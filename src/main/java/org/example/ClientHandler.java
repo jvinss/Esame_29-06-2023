@@ -65,9 +65,7 @@ public class ClientHandler implements Runnable {
         Gson g = new Gson();
         Command cmd = null;
 
-        if (s.equals("")) {
-            return "Comando non riconosciuto, riprovare";
-        }
+
 
         if (s.equals("exit")) {
             return "Uscito";
@@ -82,6 +80,10 @@ public class ClientHandler implements Runnable {
             }
         }
 
+        if (cmd == null) {
+            return "Comando non riconosciuto, riprovare";
+        }
+
         Plate moreCaloricPlate = null;
         String plateJSON = "";
         switch (cmd.getCmd()) {
@@ -89,7 +91,6 @@ public class ClientHandler implements Runnable {
                 double max = Double.MIN_VALUE;
                 for (Plate piatto : restaurant.getPiatti()) {
                     if (piatto.getCalories() > max) {
-                        System.out.println("Calorie:" + piatto.getCalories());
                         moreCaloricPlate = piatto;
                         max = piatto.getCalories();
                     }
