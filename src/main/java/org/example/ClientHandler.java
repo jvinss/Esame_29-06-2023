@@ -23,7 +23,7 @@ public class ClientHandler implements Runnable {
         System.out.println("Connesso da: " + inetAddress);
     }
 
-    boolean manage() {
+    boolean manage() throws IOException {
         restaurant.buildPlateList();
         BufferedReader in = null;
 
@@ -41,6 +41,7 @@ public class ClientHandler implements Runnable {
             return false;
         }
         out.println("Connesso, client: " + inetAddress);
+        out.println("digitare \"exit\" per uscire");
 
         String s = "";
         while (true) {
@@ -51,18 +52,25 @@ public class ClientHandler implements Runnable {
             }
             System.out.println("Input: " + s);
             out.println("Comando inserito: " + s);
-            String result = execute(s, out);
+            String result = execute(s);
             out.println(result);
+            if (result.equals("Uscito")) {
+                clientSocket.close();
+            }
         }
         return true;
     }
 
-    private String execute(String s, PrintWriter out) {
+    private String execute(String s) {
         Gson g = new Gson();
         Command cmd = null;
 
         if (s.equals("")) {
             return "Comando non riconosciuto, riprovare";
+        }
+
+        if (s.equals("exit")) {
+            return "Uscito";
         }
 
         while(true) {
@@ -106,6 +114,10 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
-        manage();
+        try {
+            manage();
+        } catch (IOException e) {
+            return;
+        }
     }
 }
