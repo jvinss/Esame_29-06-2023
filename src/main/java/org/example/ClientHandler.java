@@ -109,8 +109,9 @@ public class ClientHandler implements Runnable {
                 }
                 plateJSON = g.toJson(vegans);
                 return plateJSON;
+            default:
+                return "Comando non riconosciuto";
         }
-        return "Comando non riconosciuto";
      }
 
     @Override
