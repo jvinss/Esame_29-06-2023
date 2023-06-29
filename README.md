@@ -1,5 +1,6 @@
 # Esame_29-06-2023
 IP e PORTA: 192.168.154.57 1234
+
 COMANDI:
 
 {cmd:"more_caloric"}
