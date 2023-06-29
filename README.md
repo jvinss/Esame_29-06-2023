@@ -1,4 +1,8 @@
 # Esame_29-06-2023
+IP e PORTA: 192.168.154.57 1234
+
+
+
 Traccia A
 
 Un server TCP ha una lista di piatti che puo' inviare
@@ -12,3 +16,4 @@ Via "nc" / telnet
 
 Si scrivano le opportune classi/array JAVA a supporto (classe
 Piatto) i cui attributi si ricavano dal seguente JSON...
+
