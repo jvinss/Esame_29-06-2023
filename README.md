@@ -3,7 +3,7 @@ IP e PORTA: 192.168.154.57 1234
 
 
 
-Traccia A
+Traccia A - Acob John Vincent
 
 Un server TCP ha una lista di piatti che puo' inviare
 al client che invii i seguenti possibile comandi TESTUALI:
