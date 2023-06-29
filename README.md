@@ -1,6 +1,9 @@
 # Esame_29-06-2023
 IP e PORTA: 192.168.154.57 1234
-
+COMANDI:
+{cmd:"more_caloric"}
+{cmd:"all"}
+{cmd:"all_vegans"}
 
 
 Traccia A - Acob John Vincent
